@@ -29,3 +29,30 @@ delete user.surname;
 
 // проверка
 console.log(user);
+
+// Задание 2.1
+
+const arr1 = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+const arr2 = [1, 2, 3, 4, 5, 6, 7];
+
+// Создаем объект
+const daysObj = {};
+for (let i = 0; i < arr1.length; i++) {
+  daysObj[arr1[i]] = arr2[i];
+}
+
+console.log(daysObj);
+
+// Задание 2.2
+
+const obj = {x: 1, y: 2, z: 3};
+
+// Перебираем объект и возводим каждое значение в квадрат
+for (let key in obj) {
+  if (obj.hasOwnProperty(key)) {
+    obj[key] = obj[key] ** 2;
+  }
+}
+
+console.log(obj);
+
