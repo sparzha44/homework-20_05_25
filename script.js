@@ -56,3 +56,40 @@ for (let key in obj) {
 
 console.log(obj);
 
+// Задание 3
+
+const obj = {
+  key1: {
+    key1: 1,
+    key2: 2,
+    key3: 3,
+  },
+  key2: {
+    key1: 4,
+    key2: 5,
+    key3: 6,
+  },
+  key3: {
+    key1: 7,
+    key2: 8,
+    key3: 9,
+  },
+};
+
+// Инициализируем сумму
+let totalSum = 0;
+
+// Перебираем верхний уровень объекта
+for (let outerKey in obj) {
+  if (obj.hasOwnProperty(outerKey)) {
+    const innerObj = obj[outerKey];
+    // Перебираем внутренний объект
+    for (let innerKey in innerObj) {
+      if (innerObj.hasOwnProperty(innerKey)) {
+        totalSum += innerObj[innerKey];
+      }
+    }
+  }
+}
+
+console.log("Сумма элементов:", totalSum);
