@@ -93,3 +93,35 @@ for (let outerKey in obj) {
 }
 
 console.log("Сумма элементов:", totalSum);
+
+const riddles = {
+  question: "Что всегда идет, но никогда не приходит?",
+  answer: "время",
+  hints: [
+    "Это не человек и не животное.",
+    "Его нельзя остановить или вернуть назад."
+  ],
+  askQuestion() {
+    let attempts = 0;
+    while (attempts < 3) {
+      const userAnswer = prompt(this.question + (attempts > 0 ? `\nПодсказка: ${this.hints[attempts - 1]}` : ""));
+      if (!userAnswer) {
+        console.log("Вы отменили игру.");
+        return;
+      }
+      if (userAnswer.trim().toLowerCase() === this.answer.toLowerCase()) {
+        console.log("Правильно! Вы выиграли!");
+        return;
+      } else {
+        attempts++;
+        if (attempts === 3) {
+          console.log("Вы проиграли");
+        }
+      }
+    }
+  }
+};
+
+// Запуск загадки
+riddles.askQuestion();
+
